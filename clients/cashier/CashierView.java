@@ -94,9 +94,7 @@ public class CashierView implements Observer
 //    theBtBought.addActionListener(                  // Call back code
 //            e -> cont.doBought() );
 //    cp.add( theBtBought );                          //  Add to canvas
-theBtBought.setId("button");
-theBtBuy.setId("button");
-theBtCheck.setId("button");
+
 
     theAction.setPrefSize(270, 20);       // Message area
     theAction.setText( "" );                        // Blank

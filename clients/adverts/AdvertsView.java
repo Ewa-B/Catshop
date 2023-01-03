@@ -35,10 +35,10 @@ public class AdvertsView{
         stage.setX(x);
 
         theAction = new Label();
-        theAction.setTranslateX(100);
-        theAction.setTranslateY(40);
-        //theAction.setPrefSize(270, 20);
         theAction.setText("TODAY'S OFFERS");
+        theAction.setTranslateX((W/2) - 80);
+        theAction.setTranslateY(45);
+        theAction.setId("adLabel");
 
         btnPlay = new Button("Play Music");
         btnPlay.setTranslateY(5);
@@ -51,6 +51,8 @@ public class AdvertsView{
         btnPause.setTranslateY(5);
         btnPause.setTranslateX(100);
         btnPause.setOnAction(event -> cont.pause());
+        btnPause.setId("MusicPause");
+        btnPlay.setId("MusicPlay");
 
 
 

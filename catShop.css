@@ -7,7 +7,7 @@
 -fx-border-color: pink;
 -fx-background-color: #72e5d0;
 }
-#button {
+Button {
     -fx-background-color:
         linear-gradient(#ffd65b, #e68400),
         linear-gradient(#ffef84, #f2ba44),
@@ -16,8 +16,27 @@
         linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
     -fx-background-radius: 30;
     -fx-background-insets: 0,1,2,3,0;
-    -fx-text-fill: #654b00;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-font-size: 12px;
     -fx-padding: 10 20 10 20;
     }
+
+#MusicPlay, #MusicPause{
+-fx-text-fill: black;
+-fx-padding: 5px;
+-fx-background-color:
+        linear-gradient(#42d7f5, #e6eb96);
+-fx-font: bold 12pt "Comic Sans MS";
+-fx-border-style: solid inside;
+-fx-border-color: black;
+-fx-effect: dropshadow(three-pass-box, pink, 30, 0, 0, 0);
+}
+
+#adLabel{
+-fx-text-fill: black;
+-fx-background-color:
+        linear-gradient(#e876f5, #e6eb96);
+-fx-padding: 3px;
+-fx-font: bold 12pt "Comic Sans MS";
+}

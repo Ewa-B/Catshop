@@ -69,13 +69,14 @@ public class PickView implements Observer
     
  //   Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
 
-    theBtPicked.setPrefSize(80, 40);   // Check Button
-    theBtPicked.setOnAction(e -> cont.doPick() );                   // Call back code
+   // theBtPicked.setPrefSize(80, 40);   // Check Button
+    theBtPicked.setOnAction(e -> cont.doPick() );// Call back code
+//    theBtPicked.setId("btnPick");
 
-    theAction.setPrefSize(270, 20);      // Message area
+    theAction.setPrefSize(250, 20);      // Message area
     theAction.setText( "" );                        // Blank
 
-    theSP.setPrefSize(270, 205);          // Scrolling pane
+    theSP.setPrefSize(250, 205);          // Scrolling pane
     theOutput.setText( "" );  //  Blank
     theOutput.prefHeight(200);
     theSP.setContent(theOutput);
