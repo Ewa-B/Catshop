@@ -13,7 +13,15 @@ public class AdvertsController {
     public void play(){
         model.initMedia();
         model.mediaPlayer.play();
-        view.getBtnPlay().setText("Pause music");
+        view.getBtnPlay().setVisible(false);
+        view.getBtnPause().setVisible(true);
+
+
+    }
+    public void pause(){
+        model.mediaPlayer.pause();
+        view.getBtnPlay().setVisible(true);
+        view.getBtnPause().setVisible(false);
 
     }
 }
