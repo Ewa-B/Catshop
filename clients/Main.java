@@ -1,5 +1,6 @@
 package clients;
 
+import clients.adverts.AdvertsController;
 import clients.adverts.AdvertsModel;
 import clients.adverts.AdvertsView;
 import clients.backDoor.BackDoorController;
@@ -180,10 +181,10 @@ public class Main extends Application
     });
     Dimension pos = PosOnScrn.getPos();
 
-    //AdvertsModel model      = new AdvertsModel(mlf);
+    AdvertsModel model      = new AdvertsModel(mlf);
     AdvertsView view        = new AdvertsView( stage, mlf, pos.width, pos.height );
-    //CollectController cont  = new CollectController( model, view );
-    //view.setController( cont );
+    AdvertsController cont  = new AdvertsController( model, view );
+    view.setController( cont );
 
     //model.addObserver( view );       // Add observer to the model
     stage.show();
