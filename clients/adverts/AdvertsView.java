@@ -46,8 +46,8 @@ public class AdvertsView{
         theAction.setText("TODAY'S OFFERS");
 
         btnPlay = new Button("Play Music");
-       // btnPlay.setOnAction(event -> cont.play());
-       btnPlay.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> cont.play());
+        btnPlay.setOnAction(event -> cont.play());
+       //btnPlay.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> cont.play());
 
 
 
