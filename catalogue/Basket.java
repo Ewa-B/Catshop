@@ -35,6 +35,7 @@ public class Basket extends ArrayList<Product> implements Serializable
    */
   public void setOrderNum( int anOrderNum )
   {
+
     theOrderNum = anOrderNum;
   }
 
@@ -56,11 +57,13 @@ public class Basket extends ArrayList<Product> implements Serializable
    */
   // Will be in the Java doc for Basket
   @Override
-  public boolean add( Product pr )
-  {                              
+  public boolean add( Product pr ) {
     return super.add( pr );     // Call add in ArrayList
   }
 
+  public boolean remove(Product p){
+    return super.remove(p);
+  }
   /**
    * Returns a description of the products in the basket suitable for printing.
    * @return a string description of the basket products
@@ -94,4 +97,5 @@ public class Basket extends ArrayList<Product> implements Serializable
     }
     return sb.toString();
   }
+
 }

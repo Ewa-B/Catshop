@@ -32,8 +32,8 @@ public class CustomerView implements Observer
 //    public static final String REMOVE  = "Remove";
   }
 
-  private static final int H = 400;       // Height of window pixels
-  private static final int W = 500;       // Width  of window pixels
+  private static final int H = 300;       // Height of window pixels
+  private static final int W = 400;       // Width  of window pixels
 
   private AudioClip theAudioClip;
 

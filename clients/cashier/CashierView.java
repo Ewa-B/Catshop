@@ -26,8 +26,8 @@ import java.util.Observer;
  */
 public class CashierView implements Observer
 {
-  private static final int H = 400;       // Height of window pixels
-  private static final int W = 500;       // Width  of window pixels
+  private static final int H = 300;       // Height of window pixels
+  private static final int W = 400;       // Width  of window pixels
 
   private static final String CHECK  = "Check";
   private static final String BUY    = "Buy";
@@ -80,6 +80,7 @@ public class CashierView implements Observer
     theBtBought.setOnAction(event -> cont.doBought());
 
     remove = new Button("Remove");
+    remove.setOnAction(event -> cont.doRemove());
 
     theAction.setPrefSize(270, 20);       // Message area
     theAction.setText( "" );                        // Blank

@@ -26,8 +26,8 @@ public class BackDoorView implements Observer
   private static final String CLEAR    = "Clear";
   private static final String QUERY    = "Query";
 
-  private static final int H = 400;       // Height of window pixels
-  private static final int W = 500;       // Width  of window pixels
+  private static final int H = 300;       // Height of window pixels
+  private static final int W = 400;       // Width  of window pixels
 
   private final Label theAction  = new Label();
   private final TextField theInput   = new TextField();

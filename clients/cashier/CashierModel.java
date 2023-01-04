@@ -159,6 +159,21 @@ public class CashierModel extends Observable
     theBasket = null;
     setChanged(); notifyObservers(theAction); // Notify
   }
+  public void doRemove(){
+    String theAction = "Item removed: " + theProduct.getDescription();
+    if(theBasket != null && theBasket.size()>0){
+      theBasket.remove(theBasket.size()-1);
+
+
+      setChanged(); notifyObservers(theAction);
+      try {
+        theStock.addStock(theProduct.getProductNum(), 1);
+      } catch (StockException e) {
+        throw new RuntimeException(e);
+      }
+    }
+
+  }
 
   /**
    * ask for update of view callled at start of day

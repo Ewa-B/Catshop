@@ -1,6 +1,7 @@
 package clients.customer;
 
 import catalogue.Basket;
+import catalogue.BetterBasket;
 import catalogue.Product;
 import debug.DEBUG;
 import javafx.scene.image.Image;
