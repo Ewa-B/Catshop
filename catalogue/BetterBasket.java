@@ -14,17 +14,17 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
   private static final long serialVersionUID = 1L;
 
   @Override
-  public boolean add(Product pr1) {
+  public boolean add(Product product) {
     // loop through the existing products
-    for (Product pr2 : this){
-      if (pr1.getProductNum().equals(pr2.getProductNum())){
+    for (Product p : this){
+      if (product.getProductNum().equals(p.getProductNum())){
         // if found -> update the quantity
-        pr2.setQuantity(pr2.getQuantity()+ pr1.getQuantity());
+        p.setQuantity(p.getQuantity()+ product.getQuantity());
         return (true);
       }
     }
     // if not found -> add new product
-    super.add(pr1);
+    super.add(product);
     Collections.sort(this,this);
     return (true);
   }

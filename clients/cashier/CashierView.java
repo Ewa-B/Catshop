@@ -41,6 +41,8 @@ public class CashierView implements Observer
   private final Button     theBtBuy   = new Button( BUY );
   private final Button     theBtBought= new Button( BOUGHT );
 
+  private Button remove;
+
   private StockReadWriter theStock     = null;
   private OrderProcessing theOrder     = null;
   private CashierController cont       = null;
@@ -69,24 +71,15 @@ public class CashierView implements Observer
     stage.setX(x);
 
     theBtCheck.setPrefSize(100, 40);
-    //theBtCheck.setBounds( 16, 25+60*0, 80, 40 );    // Check Button
     theBtCheck.setOnAction(event -> cont.doCheck(theInput.getText()));
-//    theBtCheck.addActionListener(                   // Call back code
-//            e -> cont.doCheck( theInput.getText() ) );
-//    cp.add( theBtCheck );                           //  Add to canvas
 
     theBtBuy.setPrefSize( 100, 40 );      // Buy button
     theBtBuy.setOnAction(event -> cont.doBuy());
-//    theBtBuy.addActionListener(                     // Call back code
-//            e -> cont.doBuy() );
-//    cp.add( theBtBuy );                             //  Add to canvas
 
     theBtBought.setPrefSize(100, 40);   // Clear Button
     theBtBought.setOnAction(event -> cont.doBought());
-//    theBtBought.addActionListener(                  // Call back code
-//            e -> cont.doBought() );
-//    cp.add( theBtBought );                          //  Add to canvas
 
+    remove = new Button("Remove");
 
     theAction.setPrefSize(270, 20);       // Message area
     theAction.setText( "" );                        // Blank
@@ -100,7 +93,7 @@ public class CashierView implements Observer
     theSP.setContent(theOutput);//  Blank
                      // Focus is here
     GridPane buttonPane = new GridPane(); // button Pane
-    buttonPane.addColumn(0, theBtCheck, theBtBuy, theBtBought);
+    buttonPane.addColumn(0, theBtCheck, theBtBuy, theBtBought, remove);
     buttonPane.setVgap(20); // Vertical Spacing
 
     GridPane inputBar = new GridPane();
