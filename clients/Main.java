@@ -181,8 +181,9 @@ public class Main extends Application
     });
     Dimension pos = PosOnScrn.getPos();
 
-    AdvertsModel model      = new AdvertsModel(mlf);
     AdvertsView view        = new AdvertsView( stage, mlf, pos.width, pos.height );
+    AdvertsModel model      = new AdvertsModel(view);
+
     AdvertsController cont  = new AdvertsController( model, view );
     view.setController( cont );
 

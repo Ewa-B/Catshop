@@ -1,5 +1,7 @@
 package clients.adverts;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -7,6 +9,7 @@ import javafx.util.Duration;
 import middle.MiddleFactory;
 
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class AdvertsModel {
 
@@ -15,9 +18,13 @@ public class AdvertsModel {
     private Image image = null;
     Media media;
     MediaPlayer mediaPlayer;
+    private int counter;
 
-    public AdvertsModel(MiddleFactory mf) {
-
+//    public AdvertsModel(MiddleFactory mf) {
+//
+//    }
+    public AdvertsModel(AdvertsView view){
+        this.view = view;
     }
 
     public void initMedia(){
@@ -26,5 +33,7 @@ public class AdvertsModel {
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
     }
+
+
 }
 

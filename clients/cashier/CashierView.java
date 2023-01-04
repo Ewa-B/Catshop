@@ -67,14 +67,6 @@ public class CashierView implements Observer
     stage.setHeight(H);
     stage.setY(y);
     stage.setX(x);
-//    Container cp         = rpc.getContentPane();    // Content Pane
-//    Container rootWindow = (Container) rpc;         // Root Window
-//    cp.setLayout(null);                             // No layout manager
-//    rootWindow.setSize( W, H );                     // Size of Window
-//    rootWindow.setLocation( x, y );
-
-    //CatShopFX
-    //Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
 
     theBtCheck.setPrefSize(100, 40);
     //theBtCheck.setBounds( 16, 25+60*0, 80, 40 );    // Check Button

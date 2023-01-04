@@ -40,3 +40,7 @@ Button {
 -fx-padding: 3px;
 -fx-font: bold 12pt "Comic Sans MS";
 }
+#adImg{
+-fx-border-style: solid inside;
+-fx-border-color: black;
+}

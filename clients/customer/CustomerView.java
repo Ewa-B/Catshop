@@ -64,9 +64,6 @@ public class CustomerView implements Observer
 
   public CustomerView(Stage stage, MiddleFactory mf, int x, int y )
   {
-    // Create an AudioClip, which loads the audio data synchronously
-   // final URL resource = getClass().getResource("/audio/welcome.mp3");
-    //theAudioClip = new AudioClip(resource.toExternalForm());
 
     try                                             //
     {
@@ -90,23 +87,10 @@ public class CustomerView implements Observer
     theAction.setPrefSize(270, 20);
     theAction.setText("");
 
-//    theBtReserve.setPrefSize( 100, 40 ); // Reserve Button Size
-//   // theBtReserve.setOnAction(event -> cont.doReserve(theInput.getText()));
-//
-//    theBtSubmit.setPrefSize( 100, 40 ); // Submit Button Size
-//    //theBtSubmit.setOnAction(event -> cont.doSubmitReservation());
-//
-//    theBtRemove.setPrefSize( 100, 40 ); // Submit Button Size
-//   // theBtRemove.setOnAction(event -> cont.doRemove());
+
 
     thePicture.setFitWidth( 100 );   // Picture area
     thePicture.setFitHeight( 100 );
-
-//    theAction.setPrefSize( 650, 20 );
-//    theAction.setText( "" );                        //  Blank
-
-//    theInputName.setPrefSize(100, 40);
-//    theInputName.setText("Product No:");
 
     theInput.setPrefSize( 220, 40 );
     theInput.setText("");     // Blank
@@ -140,27 +124,6 @@ public class CustomerView implements Observer
 
     root.setMinSize(400, 300);
 
-//    String rootStyle = "-fx-padding: 10;-fx-border-style: solid inside; -fx-border-width: 1; -fx-border-insets: 5;" +
-//            "-fx-border-radius: 5; -fx-border-color: purple; -fx-background-color: #b19cd9;";
-//    String redButtonStyle = "-fx-background-radius: 1em; -fx-background-color: red; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String blueButtonStyle = "-fx-background-radius: 1em; -fx-background-color: blue; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String brownButtonStyle = "-fx-background-radius: 1em; -fx-background-color: brown; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String midnightblueButtonStyle = "-fx-background-radius: 1em; -fx-background-color: midnightblue; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String greyButtonStyle = "-fx-background-radius: 1em; -fx-background-color: grey; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String inputStyle = "-fx-background-color:lightgreen; -fx-font-family: Calibri; -fx-font-size: 16px";
-//    String richAreaStyle = "-fx-control-inner-background:lightgreen; -fx-font-family: Calibri; -fx-font-size: 16px";
-//    String labelStyle = "-fx-font-family: Calibri; -fx-font-size: 14px; -fx-font-weight: bolder;";
-//
-//    root.setStyle(rootStyle);
-//    theBtClear.setStyle(brownButtonStyle);
-//    theBtCheck.setStyle(redButtonStyle);
-//    theBtReserve.setStyle(midnightblueButtonStyle);
-//    theBtSubmit.setStyle(blueButtonStyle);
-//    theBtRemove.setStyle(greyButtonStyle);
-//    theInputName.setStyle(labelStyle);
-//    theInput.setStyle(inputStyle);
-//    theOutput.setStyle(richAreaStyle);
-//    theAction.setStyle(labelStyle);
 
     Scene scene = new Scene(root);  // Create the Scene
       scene.getStylesheets().add("catShop.css");
