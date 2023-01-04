@@ -29,8 +29,8 @@ import java.util.ResourceBundle;
 
 public class AdvertsView implements Observer {
 
-    private static final int H = 500;       // Height of window pixels
-    private static final int W = 420;
+    private static final int H = 400;       // Height of window pixels
+    private static final int W = 500;
     private final Label theAction;
     private Button btnPlay;
     private Button btnPause;
