@@ -31,6 +31,7 @@ public class AdvertsModel {
         String music = "Long.mp3";
         media = new Media(Paths.get(music).toUri().toString());
         mediaPlayer = new MediaPlayer(media);
+        //https://docs.oracle.com/javase/8/javafx/api/javafx/scene/media/MediaPlayer.html
         mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
     }
 

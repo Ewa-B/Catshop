@@ -37,12 +37,12 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
   @Override
   public boolean remove(Product p) {
     for (Product product : this){
-      System.out.println(product.getQuantity());
-      if(p.getQuantity() >= 1){
-        p.setQuantity(p.getQuantity()-1);
-
+      if(product.getQuantity() >= 1){
+        product.setQuantity(product.getQuantity()-1);
       }
     }
+    super.remove(p);
+
     Collections.sort(this,this);
     return true;
   }

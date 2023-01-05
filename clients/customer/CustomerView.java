@@ -27,15 +27,11 @@ public class CustomerView implements Observer
   {
     public static final String CHECK  = "Check";
     public static final String CLEAR  = "Clear";
-//    public static final String RESERVE  = "Reserve";
-//    public static final String SUBMIT  = "Submit";
-//    public static final String REMOVE  = "Remove";
+
   }
 
-  private static final int H = 300;       // Height of window pixels
-  private static final int W = 400;       // Width  of window pixels
-
-  private AudioClip theAudioClip;
+  private static final int H = 320;       // Height of window pixels
+  private static final int W = 420;       // Width  of window pixels
 
   private final Label theAction  = new Label();
  // private final Label theInputName = new Label();
@@ -44,9 +40,6 @@ public class CustomerView implements Observer
   private final ScrollPane theSP = new ScrollPane();
   private final Button     theBtCheck = new Button( Name.CHECK );
   private final Button     theBtClear = new Button( Name.CLEAR );
-//  private final Button     theBtReserve = new Button( Name.RESERVE );
-//  private final Button     theBtSubmit = new Button( Name.SUBMIT );
-//  private final Button     theBtRemove = new Button( Name.REMOVE );
 
   private ImageView thePicture = new ImageView();
 
@@ -80,57 +73,49 @@ public class CustomerView implements Observer
 
     theBtCheck.setPrefSize( 80, 40 ); // Check Button Size
     theBtCheck.setOnAction(event -> cont.doCheck(theInput.getText()));
+    theBtCheck.setTranslateY(10);
+    theBtCheck.setTranslateX(10);
 
     theBtClear.setPrefSize( 80, 40 ); // Clear Button Size
     theBtClear.setOnAction(event -> cont.doClear());
+    theBtClear.setTranslateY(180);
+    theBtClear.setTranslateX(10);
 
-    theAction.setPrefSize(270, 20);
+    theAction.setPrefSize(270, 30);
     theAction.setText("");
-
-
+    theAction.setTranslateY(5);
+    theAction.setTranslateX(100);
 
     thePicture.setFitWidth( 100 );   // Picture area
     thePicture.setFitHeight( 100 );
+    thePicture.setTranslateY(70);
+    thePicture.setTranslateX(10);
 
-    theInput.setPrefSize( 220, 40 );
+    theInput.setPrefSize( 220, 35 );
     theInput.setText("");     // Blank
+    theInput.setTranslateY(30);
+    theInput.setTranslateX(110);
 
-    theSP.setPrefSize(270,160);
+    theSP.setPrefSize(260,160);
+    theSP.setTranslateY(75);
+    theSP.setTranslateX(110);
 
-    //theOutput.setPrefSize( 650, 460 );
     theOutput.setText( "" );
     theOutput.prefHeight(200);
     theSP.setContent(theOutput);
 
-    GridPane buttonBar = new GridPane();
-    buttonBar.addColumn(0, theBtCheck,thePicture,theBtClear );
-    buttonBar.setVgap(10); // Set the horizontal spacing to 10px
+      Pane pane = new Pane();
+      pane.getChildren().add(theBtCheck);
+      pane.getChildren().add(theBtClear);
+      pane.getChildren().add(theAction);
+      pane.getChildren().add(theSP);
+      pane.getChildren().add(theInput);
+      pane.getChildren().add(thePicture);
 
-    GridPane inputBar = new GridPane();
-    inputBar.addRow(0, theInput);
-    inputBar.setHgap(10);
-
-    GridPane infoBar = new GridPane();
-    infoBar.addColumn(0, theAction,theInput, theSP);
-    infoBar.setVgap(10);
-
-    HBox root = new HBox();
-    root.setId("Customer");
-    root.setSpacing(10);   //Setting the space between the nodes of a root pane
-
-    ObservableList<Node> rootList = root.getChildren(); //retrieving the observable list of the root pane
-    rootList.addAll(buttonBar, infoBar); //Adding all the nodes to the observable list
-
-
-    root.setMinSize(400, 300);
-
-
-    Scene scene = new Scene(root);  // Create the Scene
+    Scene scene = new Scene(pane);  // Create the Scene
       scene.getStylesheets().add("catShop.css");
+      pane.setId("Customer");
       stage.setScene(scene); // Add the scene to the Stage
-//    theAudioClip.setCycleCount(AudioClip.INDEFINITE);
-//    theAudioClip.play();
-
 
     theInput.requestFocus();  // Focus is here
   }

@@ -25,27 +25,27 @@ class Setup
   "drop table ProductTable",
   "create table ProductTable ("+
       "productNo      Char(4)," +
-      "description    Varchar(40)," +
+      "description    Varchar(80)," +
       "picture        Varchar(80)," +
       "price          Float)",
 
   "insert into ProductTable values " +
-     "('0001', '40 inch 4K HD TV', 'images/pic0001.jpg', 269.00)",
+     "('0001', 'Classical Acoustic Guitar', 'images/advert1.jpg', 56.00)",
   "insert into ProductTable values " +
-     "('0002', 'DAB Radio',         'images/pic0002.jpg', 29.99)",
+     "('0002', '43-inch 4K Smart TV',         'images/advert2.jpg', 429.99)",
   "insert into ProductTable values " +
-     "('0003', 'Toaster',           'images/pic0003.jpg', 19.99)",
+     "('0003', 'Smartwatch for Android iOS Phones',           'images/advert3.jpg', 59.99)",
   "insert into ProductTable values " +
-     "('0004', 'Watch',             'images/pic0004.jpg', 29.99)",
+     "('0004', 'Wireless Headphones',             'images/advert4.jpg', 99.00)",
   "insert into ProductTable values " +
-     "('0005', 'Digital Camera',    'images/pic0005.jpg', 89.99)",
+     "('0005', 'Laptop 15.6 Inch 16GB RAM 512GB SSD',    'images/advert5.jpg', 899.99)",
   "insert into ProductTable values " +
-     "('0006', 'MP3 player',        'images/pic0006.jpg', 7.99)",
+     "('0006', 'Apple 2021 iMac',        'images/advert6.jpg', 1499.00)",
   "insert into ProductTable values " +
-     "('0007', '32Gb USB2 drive',   'images/pic0007.jpg', 6.99)",
+     "('0007', 'Fire HD 10 tablet',   'images/advert7.jpg', 150.00)",
   //add a lamp item to the database
           "insert into ProductTable values " +
-         "('0008', 'Lamp',   'images/pic0008.jpg', 39.99)",
+         "('0008', 'USB Drive 128GB',   'images/advert8.jpg', 19.99)",
 //  "select * from ProductTable",
 
 

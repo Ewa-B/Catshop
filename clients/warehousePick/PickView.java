@@ -103,21 +103,7 @@ public class PickView implements Observer
 
     // Set the Size of the GridPane
     root.setMinSize(400, 300);
-    // Set style
-//    String rootStyle = "-fx-padding: 10;-fx-border-style: solid inside; -fx-border-width: 1; -fx-border-insets: 5;" +
-//            "-fx-border-radius: 5; -fx-border-color: purple; -fx-background-color: #b19cd9;";
-//    String blueButtonStyle = "-fx-background-radius: 1em; -fx-background-color: blue; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String brownButtonStyle = "-fx-background-radius: 1em; -fx-background-color: brown; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String pinkButtonStyle = "-fx-background-radius: 1em; -fx-background-color: pink; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String greyButtonStyle = "-fx-background-radius: 1em; -fx-background-color: grey; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String inputStyle = "-fx-background-color:lightgreen; -fx-font-family: Calibri; -fx-font-size: 16px";
-//    String richAreaStyle = "-fx-control-inner-background:lightgreen; -fx-font-family: Calibri; -fx-font-size: 16px";
-//    String labelStyle = "-fx-font-family: Calibri; -fx-font-size: 14px; -fx-font-weight: bolder;";
 
-//    root.setStyle(rootStyle);
-//    theBtPicked.setStyle(blueButtonStyle);
-//    theAction.setStyle(labelStyle);
-//    theOutput.setStyle(richAreaStyle);
 
     Scene scene = new Scene(root);  // Create the Scene
     scene.getStylesheets().add("catShop.css");

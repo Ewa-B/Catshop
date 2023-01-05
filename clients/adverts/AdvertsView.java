@@ -4,6 +4,7 @@ import clients.customer.CustomerController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
@@ -21,6 +22,7 @@ import javafx.util.Duration;
 import middle.MiddleFactory;
 
 
+import javax.xml.soap.Node;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -81,34 +83,32 @@ public class AdvertsView implements Observer {
         imageView.setPreserveRatio(true);
         imageView.setId("AdImg");
 
-
-
-
-
         Pane pane = new Pane();
+
         pane.getChildren().add(theAction);
         pane.getChildren().add(btnPlay);
         pane.getChildren().add(btnPause);
         pane.getChildren().add(imageView);
 
-
         Scene scene = new Scene(pane);
         pane.getStylesheets().add("catShop.css");
         pane.setId("Adverts");
         stage.setScene(scene);
-
-
     }
     private void slideShow() {
         ArrayList<Image> images = new ArrayList<>();
-        images.add(new Image("ad1.jpg"));
-        images.add(new Image("ad2.jpg"));
-        images.add(new Image("ad3.jpg"));
-        images.add(new Image("ad4.png"));
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+        images.add(new Image("/images/advert1.jpg"));
+        images.add(new Image("/images/advert2.jpg"));
+        images.add(new Image("/images/advert3.jpg"));
+        images.add(new Image("/images/advert4.jpg"));
+        images.add(new Image("/images/advert5.jpg"));
+        images.add(new Image("/images/advert6.jpg"));
+        images.add(new Image("/images/advert7.jpg"));
+        images.add(new Image("/images/advert8.jpg"));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             imageView.setImage(images.get(counter));
             counter++;
-            if (counter == 3) {
+            if (counter == 8) {
                 counter = 0;
             }
         }));

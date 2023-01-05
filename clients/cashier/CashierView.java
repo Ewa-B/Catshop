@@ -80,6 +80,7 @@ public class CashierView implements Observer
     theBtBought.setOnAction(event -> cont.doBought());
 
     remove = new Button("Remove");
+    theBtCheck.setPrefSize( 100, 40 );
     remove.setOnAction(event -> cont.doRemove());
 
     theAction.setPrefSize(270, 20);       // Message area

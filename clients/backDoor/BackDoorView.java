@@ -61,27 +61,16 @@ public class BackDoorView implements Observer
     stage.setHeight(H);
     stage.setX(x);
     stage.setY(y);
-//    Container cp         = rpc.getContentPane();    // Content Pane
-//    Container rootWindow = (Container) rpc;         // Root Window
-//    cp.setLayout(null);                             // No layout manager
-//    rootWindow.setSize( W, H );                     // Size of Window
-//    rootWindow.setLocation( x, y );
-//
-//    Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
 
     theBtQuery.setPrefSize(80, 40);    // Buy button
-    theBtQuery.setOnAction(                   // Call back code
-            e -> cont.doQuery( theInput.getText() ) );
+    theBtQuery.setOnAction(e -> cont.doQuery( theInput.getText() ) );// Call back code
 
     theBtRStock.setPrefSize(100, 40);   // Check Button
-    theBtRStock.setOnAction(                  // Call back code
-            e -> cont.doRStock( theInput.getText(),
+    theBtRStock.setOnAction(e -> cont.doRStock( theInput.getText(), // Call back code
                     theInputNo.getText() ) );
 
     theBtClear.setPrefSize( 100, 40 );    // Buy button
-    theBtClear.setOnAction(                   // Call back code
-            e -> cont.doClear() );
-
+    theBtClear.setOnAction(e -> cont.doClear() ); // Call back code
 
     theAction.setPrefSize( 270, 20 );       // Message area
     theAction.setText( "" );                        // Blank
@@ -119,24 +108,6 @@ public class BackDoorView implements Observer
 
     // Set the Size of the GridPane
     root.setMinSize(400, 300);
-    // Set style
-//    String rootStyle = "-fx-padding: 10;-fx-border-style: solid inside; -fx-border-width: 1; -fx-border-insets: 5;" +
-//            "-fx-border-radius: 5; -fx-border-color: purple; -fx-background-color: #b19cd9;";
-//    String redButtonStyle = "-fx-background-radius: 1em; -fx-background-color: red; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String blueButtonStyle = "-fx-background-radius: 1em; -fx-background-color: blue; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String brownButtonStyle = "-fx-background-radius: 1em; -fx-background-color: brown; -fx-text-fill: white; -fx-font-family: 'Calibri'; -fx-font-weight: bolder; -fx-font-size: 14px";
-//    String inputStyle = "-fx-background-color:lightgreen; -fx-font-family: Calibri; -fx-font-size: 16px";
-//    String richAreaStyle = "-fx-control-inner-background:lightgreen; -fx-font-family: Calibri; -fx-font-size: 16px";
-//    String labelStyle = "-fx-font-family: Calibri; -fx-font-size: 14px; -fx-font-weight: bolder;";
-
-//    root.setStyle(rootStyle);
-//    theBtQuery.setStyle(redButtonStyle);
-//    theBtRStock.setStyle(blueButtonStyle);
-//    theBtClear.setStyle(brownButtonStyle);
-//    theAction.setStyle(labelStyle);
-//    theOutput.setStyle(richAreaStyle);
-//    theInput.setStyle(inputStyle);
-//    theInputNo.setStyle(inputStyle);
 
     Scene scene = new Scene(root);  // Create the Scene
     scene.getStylesheets().add("catShop.css");

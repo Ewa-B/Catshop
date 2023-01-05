@@ -29,13 +29,8 @@ public class CustomerClient extends Application
             ? Names.STOCK_RW           //  default  location
             : args[0];                //  supplied location
 
-//    String stockURL2 = args.length < 2         // URL of stock R
-//            ? Names.STOCK_RW2           //  default  location
-//            : args[0];                //  supplied location
-
     mrf = new RemoteMiddleFactory();
     mrf.setStockRWInfo(stockURL);
-    // mrf.setStockRWInfo2(stockURL2);
     launch(args);
   }
 
