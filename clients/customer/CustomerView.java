@@ -30,8 +30,8 @@ public class CustomerView implements Observer
 
   }
 
-  private static final int H = 320;       // Height of window pixels
-  private static final int W = 420;       // Width  of window pixels
+  private static final int H = 330;       // Height of window pixels
+  private static final int W = 430;       // Width  of window pixels
 
   private final Label theAction  = new Label();
  // private final Label theInputName = new Label();

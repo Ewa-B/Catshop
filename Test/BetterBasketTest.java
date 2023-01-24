@@ -1,5 +1,5 @@
-package catalogue;
-
+import catalogue.BetterBasket;
+import catalogue.Product;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;

@@ -26,8 +26,8 @@ public class BackDoorView implements Observer
   private static final String CLEAR    = "Clear";
   private static final String QUERY    = "Query";
 
-  private static final int H = 300;       // Height of window pixels
-  private static final int W = 400;       // Width  of window pixels
+  private static final int H = 330;       // Height of window pixels
+  private static final int W = 430;       // Width  of window pixels
 
   private final Label theAction  = new Label();
   private final TextField theInput   = new TextField();
@@ -71,6 +71,7 @@ public class BackDoorView implements Observer
 
     theBtClear.setPrefSize( 100, 40 );    // Buy button
     theBtClear.setOnAction(e -> cont.doClear() ); // Call back code
+
 
     theAction.setPrefSize( 270, 20 );       // Message area
     theAction.setText( "" );                        // Blank

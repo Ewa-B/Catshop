@@ -37,12 +37,9 @@ public class CustomerClient extends Application
   @Override
   public void start(Stage primaryStage) throws Exception {
     primaryStage.setTitle("Customer Client (MVC RMI)");
-    primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-      @Override
-      public void handle(WindowEvent t) {
-        Platform.exit();
-        System.exit(0);
-      }
+    primaryStage.setOnCloseRequest(t -> {
+      Platform.exit();
+      System.exit(0);
     });
 
     CustomerModel model = new CustomerModel(mrf);
