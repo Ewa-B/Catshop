@@ -15,6 +15,10 @@ import middle.StockReader;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // There can only be 1 ResultSet opened per statement
 // so no simultaneous use of the statement object
@@ -89,19 +93,43 @@ public class StockR implements StockReader
    * @param pNum The product number
    * @return true if exists otherwise false
    */
+  public String findProduct(String pNum){
+    Map<String, String> products = new HashMap<>();
+    products.put("classical acoustic guitar", "0001");
+    products.put("43-inch 4k smart tv", "0002");
+    products.put("smartwatch", "0003");
+    products.put("headphones", "0004");
+    products.put("laptop", "0005");
+    products.put("apple imac", "0006");
+    products.put("tablet", "0007");
+    products.put("usb drive 128gb", "0008");
+
+    for (Map.Entry<String, String > entry : products.entrySet()){
+
+      if(entry.getKey().contains(pNum.toLowerCase())){
+        String nr = entry.getValue();
+        return nr;
+      }
+    }
+    return pNum;
+  }
+
   public synchronized boolean exists( String pNum )
          throws StockException
   {
     
     try
     {
+
+      String nr = findProduct(pNum);
+
       ResultSet rs   = getStatementObject().executeQuery(
         "select price from ProductTable " +
-        "  where  ProductTable.productNo = '" + pNum + "'"
+        "  where  ProductTable.productNo = '" + nr + "'"
       );
       boolean res = rs.next();
-      DEBUG.trace( "DB StockR: exists(%s) -> %s", 
-                    pNum, ( res ? "T" : "F" ) );
+      DEBUG.trace( "DB StockR: exists(%s) -> %s",
+                    nr, ( res ? "T" : "F" ) );
       return res;
     } catch ( SQLException e )
     {
@@ -120,16 +148,17 @@ public class StockR implements StockReader
   {
     try
     {
+      String nr = findProduct(pNum);
       Product   dt = new Product( "0", "", 0.00, 0 );
       ResultSet rs = getStatementObject().executeQuery(
         "select description, price, stockLevel " +
         "  from ProductTable, StockTable " +
-        "  where  ProductTable.productNo = '" + pNum + "' " +
-        "  and    StockTable.productNo   = '" + pNum + "'"
+        "  where  ProductTable.productNo = '" + nr + "' " +
+        "  and    StockTable.productNo   = '" + nr + "'"
       );
       if ( rs.next() )
       {
-        dt.setProductNum( pNum );
+        dt.setProductNum( nr );
         dt.setDescription(rs.getString( "description" ) );
         dt.setPrice( rs.getDouble( "price" ) );
         dt.setQuantity( rs.getInt( "stockLevel" ) );
@@ -154,9 +183,11 @@ public class StockR implements StockReader
     String filename = "default.jpg";  
     try
     {
+      String nr = findProduct(pNum);
+
       ResultSet rs   = getStatementObject().executeQuery(
         "select picture from ProductTable " +
-        "  where  ProductTable.productNo = '" + pNum + "'"
+        "  where  ProductTable.productNo = '" + nr + "'"
       );
       
       boolean res = rs.next();
@@ -172,5 +203,6 @@ public class StockR implements StockReader
     //DEBUG.trace( "DB StockR: getImage -> %s", filename );
     return new Image( filename );
   }
+
 
 }
