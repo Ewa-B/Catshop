@@ -49,4 +49,7 @@ public class CashierController
   public void doRemove(){
     model.doRemoveBetterBasket();
   }
+  public void addPromotion(){
+    model.doAddPromotion();
+  }
 }

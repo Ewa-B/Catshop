@@ -38,7 +38,7 @@ Button {
 -fx-background-color:
         linear-gradient(#e876f5, #e6eb96);
 -fx-padding: 3px;
--fx-font: bold 12pt "Comic Sans MS";
+-fx-font: bold 14pt "Comic Sans MS";
 }
 #adImg{
 -fx-border-style: solid inside;

@@ -34,18 +34,17 @@ class Setup
   "insert into ProductTable values " +
      "('0002', '43-inch 4K Smart TV',         'images/advert2.jpg', 429.99)",
   "insert into ProductTable values " +
-     "('0003', 'Smartwatch for Android iOS Phones',           'images/advert3.jpg', 59.99)",
+     "('0003', 'Smartwatch',           'images/advert3.jpg', 59.99)",
   "insert into ProductTable values " +
-     "('0004', 'Wireless Headphones',             'images/advert4.jpg', 99.00)",
+     "('0004', 'Headphones',             'images/advert4.jpg', 99.00)",
   "insert into ProductTable values " +
-     "('0005', 'Laptop 15.6 Inch 16GB RAM 512GB SSD',    'images/advert5.jpg', 899.99)",
+     "('0005', 'Laptop',    'images/advert5.jpg', 899.99)",
   "insert into ProductTable values " +
-     "('0006', 'Apple 2021 iMac',        'images/advert6.jpg', 1499.00)",
+     "('0006', 'Apple iMac',        'images/advert6.jpg', 1499.00)",
   "insert into ProductTable values " +
-     "('0007', 'Fire HD 10 tablet',   'images/advert7.jpg', 150.00)",
-  //add a lamp item to the database
-          "insert into ProductTable values " +
-         "('0008', 'USB Drive 128GB',   'images/advert8.jpg', 19.99)",
+     "('0007', 'Tablet',   'images/advert7.jpg', 150.00)",
+   "insert into ProductTable values " +
+       "('0008', 'USB Drive 128GB',   'images/advert8.jpg', 19.99)",
 //  "select * from ProductTable",
 
 

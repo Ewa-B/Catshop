@@ -187,6 +187,7 @@ public class Main extends Application
     AdvertsController cont  = new AdvertsController( model, view );
     view.setController( cont );
 
+
     //model.addObserver( view );       // Add observer to the model
     stage.show();
   }

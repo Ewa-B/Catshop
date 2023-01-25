@@ -13,9 +13,8 @@ import java.util.ResourceBundle;
 
 public class AdvertsController {
 
-    AdvertsModel model = null;
-    AdvertsView view = null;
-    private int counter;
+    AdvertsModel model;
+    AdvertsView view;
 
 
     public AdvertsController(AdvertsModel model, AdvertsView view) {
@@ -30,25 +29,6 @@ public class AdvertsController {
         view.getBtnPause().setVisible(true);
     }
 
-//    public void slideshow(){
-//        ArrayList<Image> images=new ArrayList<>();
-//
-//        images.add(new Image("ad1.jpg"));
-//        images.add(new Image("ad2.jpg"));
-//        images.add(new Image("ad3.jpg"));
-//        images.add(new Image("ad4.png"));
-//
-//        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event ->{
-//           view.getImageView().setImage(images.get(counter));
-//           counter++;
-//           if(counter == 3){
-//               counter = 0;
-//           }
-//
-//        }));
-//        timeline.setCycleCount(Timeline.INDEFINITE);
-//        timeline.play();
-//    }
     public void pause(){
         view.getBtnPause().setVisible(false);
         view.getBtnPlay().setVisible(true);

@@ -24,10 +24,9 @@ import middle.MiddleFactory;
 
 import javax.xml.soap.Node;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.ResourceBundle;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class AdvertsView implements Observer {
 
@@ -46,9 +45,6 @@ public class AdvertsView implements Observer {
     AdvertsModel model = null;
 
 
-
-
-
     public AdvertsView(Stage stage, MiddleFactory mf, int x, int y){
         stage.setWidth(W);
         stage.setHeight(H);
@@ -58,10 +54,16 @@ public class AdvertsView implements Observer {
         slideShow();
 
         theAction = new Label();
-        theAction.setText("TODAY'S OFFERS");
-        theAction.setTranslateX((W/2) - 80);
+        theAction.setText("TODAY'S OFFER: 10% OFF EVERYTHING");
+        theAction.setTranslateX(40);
         theAction.setTranslateY(45);
         theAction.setId("adLabel");
+
+        Label promoCode = new Label();
+        promoCode.setText("Enter promo code 'CATSHOP' at checkout");
+        promoCode.setTranslateY(80);
+        promoCode.setTranslateX(45);
+        promoCode.setId("adLabel");
 
         btnPlay = new Button("Play Music");
         btnPlay.setTranslateY(5);
@@ -78,8 +80,8 @@ public class AdvertsView implements Observer {
         btnPlay.setId("MusicPlay");
 
         imageView = new ImageView();
-        imageView.setTranslateY(80);
-        imageView.setTranslateX(10);
+        imageView.setTranslateY(120);
+        imageView.setTranslateX(65);
         imageView.setPreserveRatio(true);
         imageView.setId("AdImg");
 
@@ -89,12 +91,14 @@ public class AdvertsView implements Observer {
         pane.getChildren().add(btnPlay);
         pane.getChildren().add(btnPause);
         pane.getChildren().add(imageView);
+        pane.getChildren().add(promoCode);
 
         Scene scene = new Scene(pane);
         pane.getStylesheets().add("catShop.css");
         pane.setId("Adverts");
         stage.setScene(scene);
     }
+
     private void slideShow() {
         ArrayList<Image> images = new ArrayList<>();
         images.add(new Image("/images/advert1.jpg"));
@@ -116,7 +120,11 @@ public class AdvertsView implements Observer {
         timeline.play();
     }
 
-    public void setController( AdvertsController c )
+    public AdvertsController getCont() {
+        return cont;
+    }
+
+    public void setController(AdvertsController c )
     {
         cont = c;
     }

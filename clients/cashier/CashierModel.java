@@ -16,6 +16,9 @@ import java.util.Observable;
 public class CashierModel extends Observable
 {
   private enum State { process, checked }
+  private boolean promotionAdded = false;
+  private boolean removed = false;
+  private boolean itemAdded = false;
 
   private State       theState   = State.process;   // Current state
   private Product     theProduct = null;            // Current product
@@ -114,8 +117,13 @@ public class CashierModel extends Observable
             theProduct.getQuantity() );         //
         if ( stockBought )                      // Stock bought
         {                                       // T
+          itemAdded = true;
           makeBasketIfReq();                    //  new Basket ?
-          theBasket.add( theProduct );//  Add to bought
+          theBasket.add( theProduct );          //  Add to bought
+          if(theBasket.size()> 0 && promotionAdded){
+            theProduct.setPrice(theProduct.getPrice() - (theProduct.getPrice()/10));
+            itemAdded = false;
+          }
           theAction = "Purchased " +            //    details
                   theProduct.getDescription();  //
         } else {                                // F
@@ -131,12 +139,36 @@ public class CashierModel extends Observable
     theState = State.process;                   // All Done
     setChanged(); notifyObservers(theAction);
   }
-  
+  public void doAddPromotion() {
+    String theAction = "";
+    if(removed){
+      promotionAdded = false;
+      removed = false;
+    }
+    if(promotionAdded && itemAdded){
+      itemAdded = false;
+      theProduct.setPrice(theProduct.getPrice() - (theProduct.getPrice()/10));
+    }
+    if (promotionAdded && !itemAdded) {
+      theAction = "Promotion already applied";
+
+
+    } else {
+      promotionAdded = true;
+      if (theBasket.size() > 0) {
+        for (Product p : theBasket) {
+          p.setPrice(p.getPrice() - (p.getPrice() / 10));
+        }
+      }
+    }
+    setChanged();
+    notifyObservers(theAction);
+  }
   /**
    * Customer pays for the contents of the basket
    */
-  public void doBought()
-  {
+  public void doBought() {
+    promotionAdded = false;
     String theAction = "";
     int    amount  = 1;                       //  & quantity
     try
@@ -160,6 +192,7 @@ public class CashierModel extends Observable
     setChanged(); notifyObservers(theAction); // Notify
   }
   public void doRemoveBasket(){
+
     System.out.println("oRemoveBasket();");
     String theAction = "Item removed: " + theProduct.getDescription();
     if(theBasket != null && theBasket.size()>0){
@@ -173,30 +206,42 @@ public class CashierModel extends Observable
     }
 
   }
-  public void doRemoveBetterBasket(){
-    String theAction = "Item removed: " + theProduct.getDescription();
-    if(theBasket != null && theBasket.size()>0){
+  public void doRemoveBetterBasket() {
+    String theAction = "";
+    int position;
+    Product pr;
+    if (theBasket != null) {
+      if (theBasket.size() == 1) {
+        position = 0;
+        pr = theBasket.get(position);
+        if (pr.getQuantity() ==1) {
+          theBasket.remove(pr);
+          removed = true;
+        } else {
+          pr.setQuantity(pr.getQuantity() - 1);
+        }
+      }
+      else {
+        position = theBasket.size() - 1;
+        pr = theBasket.get(position);
+        if (pr.getQuantity() == 1) {
+          theBasket.remove(position);
+        }
+        else {
+          pr.setQuantity(pr.getQuantity() - 1);
+        }
+      }
+      theAction = "Item removed: " + pr.getDescription();
 
-      int position = theBasket.size()-1;
-      Product pr = theBasket.get(position);
-      if(pr.getQuantity() == 1){
-        theBasket.remove(pr);
-        setChanged(); notifyObservers(theAction);
-      }
-      if(pr.getQuantity() > 1){
-        int quantity = theBasket.get(position).getQuantity();
-        theBasket.get(position).setQuantity(quantity-1);
-      }
-      setChanged(); notifyObservers(theAction);
       try {
-        theStock.addStock(theProduct.getProductNum(), theProduct.getQuantity());
+        theStock.addStock(pr.getProductNum(), 1);
       } catch (StockException e) {
         throw new RuntimeException(e);
       }
+      setChanged();
+      notifyObservers(theAction);
     }
-
   }
-
 
   /**
    * ask for update of view callled at start of day

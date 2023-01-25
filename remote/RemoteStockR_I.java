@@ -4,9 +4,10 @@ import catalogue.Product;
 import javafx.scene.image.Image;
 import middle.StockException;
 
-import javax.swing.*;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**
  * Defines the RMI interface for read access to the stock object.
@@ -23,5 +24,6 @@ public interface RemoteStockR_I
             throws RemoteException, StockException;
   Image getImage(String number)
             throws RemoteException, StockException;
+
 }
 

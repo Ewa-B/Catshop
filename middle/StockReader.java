@@ -3,6 +3,7 @@ package middle;
 import catalogue.Product;
 import javafx.scene.image.Image;
 
+import java.util.List;
 
 
 /**
@@ -40,4 +41,5 @@ public interface StockReader
    */
   
   Image getImage(String pNum) throws StockException;
+
 }
