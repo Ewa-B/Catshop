@@ -30,8 +30,8 @@ public class CustomerView implements Observer
 
   }
 
-  private static final int H = 330;       // Height of window pixels
-  private static final int W = 430;       // Width  of window pixels
+  private static final int H = 400;       // Height of window pixels
+  private static final int W = 500;       // Width  of window pixels
 
   private final Label theAction  = new Label();
  // private final Label theInputName = new Label();
@@ -71,14 +71,14 @@ public class CustomerView implements Observer
     stage.setX( x );  // Set Window Position
     stage.setY( y );
 
-    theBtCheck.setPrefSize( 80, 40 ); // Check Button Size
+    theBtCheck.setPrefSize( 100, 40 ); // Check Button Size
     theBtCheck.setOnAction(event -> cont.doCheck(theInput.getText()));
-    theBtCheck.setTranslateY(10);
+    theBtCheck.setTranslateY(20);
     theBtCheck.setTranslateX(10);
 
-    theBtClear.setPrefSize( 80, 40 ); // Clear Button Size
+    theBtClear.setPrefSize( 100, 40 ); // Clear Button Size
     theBtClear.setOnAction(event -> cont.doClear());
-    theBtClear.setTranslateY(180);
+    theBtClear.setTranslateY(200);
     theBtClear.setTranslateX(10);
 
     theAction.setPrefSize(270, 30);
@@ -86,19 +86,19 @@ public class CustomerView implements Observer
     theAction.setTranslateY(5);
     theAction.setTranslateX(100);
 
-    thePicture.setFitWidth( 100 );   // Picture area
-    thePicture.setFitHeight( 100 );
+    thePicture.setFitWidth( 120 );   // Picture area
+    thePicture.setFitHeight( 120 );
     thePicture.setTranslateY(70);
     thePicture.setTranslateX(10);
 
     theInput.setPrefSize( 220, 35 );
     theInput.setText("");     // Blank
     theInput.setTranslateY(30);
-    theInput.setTranslateX(110);
+    theInput.setTranslateX(140);
 
-    theSP.setPrefSize(260,160);
+    theSP.setPrefSize(260,180);
     theSP.setTranslateY(75);
-    theSP.setTranslateX(110);
+    theSP.setTranslateX(140);
 
     theOutput.setText( "" );
     theOutput.prefHeight(200);

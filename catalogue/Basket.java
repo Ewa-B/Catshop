@@ -1,5 +1,8 @@
 package catalogue;
 
+import clients.adverts.AdvertsController;
+import clients.adverts.AdvertsModel;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Currency;
@@ -18,13 +21,13 @@ public class Basket extends ArrayList<Product> implements Serializable
 {
   private static final long serialVersionUID = 1;
   private int    theOrderNum = 0;          // Order number
-  
+
+
   /**
    * Constructor for a basket which is
    *  used to represent a customer order/ wish list
    */
-  public Basket()
-  {
+  public Basket() {
     theOrderNum  = 0;
   }
   
@@ -89,6 +92,8 @@ public class Basket extends ArrayList<Product> implements Serializable
         fr.format("%s%7.2f",    csign, pr.getPrice() * number );
         fr.format("\n");
         total += pr.getPrice() * number;
+       // fr.format("(%-10s) ",     "10% off" );
+        fr.format("\n");
       }
       fr.format("----------------------------\n");
       fr.format("Total                       ");
@@ -97,5 +102,7 @@ public class Basket extends ArrayList<Product> implements Serializable
     }
     return sb.toString();
   }
+
+
 
 }

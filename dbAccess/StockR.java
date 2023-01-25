@@ -104,6 +104,7 @@ public class StockR implements StockReader
     products.put("tablet", "0007");
     products.put("usb drive 128gb", "0008");
 
+
     for (Map.Entry<String, String > entry : products.entrySet()){
 
       if(entry.getKey().contains(pNum.toLowerCase())){
@@ -117,12 +118,9 @@ public class StockR implements StockReader
   public synchronized boolean exists( String pNum )
          throws StockException
   {
-    
     try
     {
-
       String nr = findProduct(pNum);
-
       ResultSet rs   = getStatementObject().executeQuery(
         "select price from ProductTable " +
         "  where  ProductTable.productNo = '" + nr + "'"

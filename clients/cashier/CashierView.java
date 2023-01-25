@@ -26,12 +26,15 @@ import java.util.Observer;
  */
 public class CashierView implements Observer
 {
-  private static final int H = 330;       // Height of window pixels
-  private static final int W = 430;       // Width  of window pixels
+  private static final int H = 400;       // Height of window pixels
+  private static final int W = 500;       // Width  of window pixels
 
   private static final String CHECK  = "Check";
   private static final String BUY    = "Buy";
   private static final String BOUGHT = "Bought";
+
+  private Button btnPromo = new Button();
+  private TextField promoInput = new TextField();
 
   private final Label theAction  = new Label();
   private final TextField theInput   = new TextField();
@@ -80,6 +83,7 @@ public class CashierView implements Observer
     theBtBought.setOnAction(event -> cont.doBought());
 
     remove = new Button("Remove");
+    remove.setPrefSize(100, 40);
     theBtCheck.setPrefSize( 100, 40 );
     remove.setOnAction(event -> cont.doRemove());
 
@@ -92,10 +96,17 @@ public class CashierView implements Observer
 
     theSP.setPrefSize(270,160);
     theOutput.setText( "" );
-    theSP.setContent(theOutput);//  Blank
-                     // Focus is here
+    theSP.setContent(theOutput);
+
+    btnPromo.setPrefSize(120, 40);
+    btnPromo.setText("Add promotion");
+
+    promoInput.setPrefSize(150, 50);
+    btnPromo.setOnAction(event -> cont.addPromotion());
+
+
     GridPane buttonPane = new GridPane(); // button Pane
-    buttonPane.addColumn(0, theBtCheck, theBtBuy, theBtBought, remove);
+    buttonPane.addColumn(0, theBtCheck, theBtBuy, theBtBought, remove, btnPromo);
     buttonPane.setVgap(20); // Vertical Spacing
 
     GridPane inputBar = new GridPane();
@@ -104,7 +115,7 @@ public class CashierView implements Observer
 
 
     GridPane infoPane = new GridPane();
-    infoPane.addColumn(0, theAction,inputBar, theSP);
+    infoPane.addColumn(0, theAction,inputBar, theSP, promoInput);
     infoPane.setVgap(10);
 
     HBox root = new HBox();
@@ -114,7 +125,6 @@ public class CashierView implements Observer
     ObservableList<Node> rootList = root.getChildren(); // retrieving the observable list of the root pane
     rootList.addAll(buttonPane, infoPane); // Adding all the nodes to the observable list
 
-    root.setMinSize(400, 300);
 
 
     Scene scene = new Scene(root);  // Create the Scene
